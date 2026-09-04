@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { EnvelopeReveal } from "./EnvelopeReveal";
 
 type Invitation = {
   invitationId: string;
@@ -17,6 +18,7 @@ export function NameSearch() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [invitations, setInvitations] = useState<Invitation[] | null>(null);
+  const [opened, setOpened] = useState<Invitation | null>(null);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -42,12 +44,13 @@ export function NameSearch() {
       }
 
       if (payload.invitations.length === 1) {
-        window.location.assign(`/rsvp/${encodeURIComponent(payload.invitations[0].token)}`);
+        setInvitations(payload.invitations);
+        setOpened(payload.invitations[0]);
         return;
       }
 
       setInvitations(payload.invitations);
-      setMessage(`Found ${payload.invitations.length} invitations. Choose yours to respond.`);
+      setMessage(`Found ${payload.invitations.length} invitations. Choose yours to open.`);
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Something went wrong.");
     } finally {
@@ -84,14 +87,26 @@ export function NameSearch() {
         <ul className="invitation-results">
           {invitations.map((invitation) => (
             <li key={invitation.token} className="invitation-result">
-              <p className="invitation-party">
-                {invitation.guests.map((guest) => `${guest.firstName} ${guest.lastName}`).join(", ")}
-              </p>
-              <a href={`/rsvp/${encodeURIComponent(invitation.token)}`}>Respond to this invitation</a>
+              <p className="invitation-party">{partyName(invitation)}</p>
+              <button type="button" className="link-button" onClick={() => setOpened(invitation)}>
+                Open this invitation
+              </button>
             </li>
           ))}
         </ul>
       ) : null}
+
+      {opened ? (
+        <EnvelopeReveal
+          token={opened.token}
+          addressedTo={partyName(opened)}
+          onClose={() => setOpened(null)}
+        />
+      ) : null}
     </>
   );
+}
+
+function partyName(invitation: Invitation) {
+  return invitation.guests.map((guest) => `${guest.firstName} ${guest.lastName}`).join(" & ");
 }
