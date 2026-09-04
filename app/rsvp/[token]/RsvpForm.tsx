@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, useEffect, useState } from "react";
 
 type Guest = {
@@ -92,7 +93,7 @@ export function RsvpForm({ token }: { token: string }) {
       <section className="card">
         <h1>Invitation not found</h1>
         <p>{message}</p>
-        <a href="/">Try another name</a>
+        <Link href="/">Try another name</Link>
       </section>
     );
   }
@@ -159,7 +160,7 @@ export function RsvpForm({ token }: { token: string }) {
         {status === "saving" ? "Saving…" : invitation.hasResponded ? "Update RSVP" : "Submit RSVP"}
       </button>
       <p className={status === "saved" ? "form-message success" : "form-message"} role="status">{message}</p>
-      <a href="/">Search another name</a>
+      <Link href="/">Search another name</Link>
     </form>
   );
 }

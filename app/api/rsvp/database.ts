@@ -1,9 +1,6 @@
-import { env } from "cloudflare:workers";
 import { Client } from "pg";
 
 export function databaseUrl() {
-  const binding = (env as Record<string, unknown>).DATABASE_URL;
-  if (typeof binding === "string" && binding.trim()) return binding.trim();
   return process.env.DATABASE_URL?.trim() ?? "";
 }
 
