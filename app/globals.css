@@ -40,7 +40,7 @@ button:disabled { cursor: wait; opacity: .65; }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 101;
+  z-index: 120;
 }
 
 .hamburger span {
@@ -58,7 +58,7 @@ button:disabled { cursor: wait; opacity: .65; }
   width: min(400px, 85vw);
   height: 100vh;
   background: #fff;
-  z-index: 99;
+  z-index: 110;
   transition: right 0.3s ease;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -94,7 +94,7 @@ button:disabled { cursor: wait; opacity: .65; }
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.4);
-  z-index: 98;
+  z-index: 105;
 }
 
 .landing-page {
