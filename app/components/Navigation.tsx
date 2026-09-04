@@ -13,7 +13,7 @@ export function Navigation() {
     <>
       <nav className="main-nav">
         <Link href="/" className="nav-logo">
-          E &amp; J
+          R &amp; E
         </Link>
         <button
           className="hamburger"
@@ -26,6 +26,8 @@ export function Navigation() {
           <span></span>
         </button>
       </nav>
+
+      {isOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
 
       <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
         <div className="mobile-menu-content">
@@ -46,8 +48,6 @@ export function Navigation() {
           </Link>
         </div>
       </div>
-
-      {isOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
     </>
   );
 }
