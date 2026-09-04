@@ -32,7 +32,7 @@ export default function Home() {
 
           <div className="info-card">
             <h2>The Celebration</h2>
-            <p className="venue-name">Th Garden Estate</p>
+            <p className="venue-name">The Garden Estate</p>
             <p className="venue-address">
               123 Vineyard Lane<br />
               Napa Valley, California
