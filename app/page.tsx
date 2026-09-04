@@ -9,7 +9,7 @@ export default function Home() {
         <section className="hero-section">
           <div className="hero-content">
             <p className="label">WE'RE GETTING MARRIED</p>
-            <h1 className="couple-names">Emily &amp; James</h1>
+            <h1 className="couple-names">Ryan &amp; Eleanor</h1>
             <div className="wedding-date">
               <div className="date-number">06</div>
               <div className="date-details">
