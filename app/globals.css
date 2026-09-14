@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Pinyon+Script&display=swap');
 
 /* =========================
    CSS VARIABLES - FLORAL COLOR PALETTE
@@ -112,10 +112,10 @@ a:hover {
 }
 
 .nav-header {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 48px;
   font-weight: 400;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   color: var(--sage-green);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -201,13 +201,13 @@ a:hover {
 }
 
 .couple-names {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(56px, 12vw, 120px);
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(64px, 14vw, 140px);
   font-weight: 400;
   margin: 0 0 48px;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   color: var(--charcoal);
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .date-location {
@@ -554,7 +554,7 @@ a:hover {
   }
   
   .nav-header {
-    font-size: 28px;
+    font-size: 38px;
   }
   
   .nav-links {
@@ -605,7 +605,7 @@ a:hover {
 
 @media (max-width: 580px) {
   .nav-header {
-    font-size: 24px;
+    font-size: 32px;
   }
   
   .nav-links {
@@ -619,7 +619,7 @@ a:hover {
 
 @media (max-width: 480px) {
   .nav-header {
-    font-size: 20px;
+    font-size: 28px;
   }
   
   .nav-links {
