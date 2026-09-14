@@ -34,9 +34,6 @@ export function Navigation() {
           <Link href="/" onClick={closeMenu}>
             Home
           </Link>
-          <Link href="/rsvp" onClick={closeMenu}>
-            RSVP
-          </Link>
           <Link href="/photos" onClick={closeMenu}>
             Photos
           </Link>

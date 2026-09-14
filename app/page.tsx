@@ -51,13 +51,6 @@ export default function Home() {
               Gentlemen, suits or dress pants with a button-down shirt.
             </p>
           </div>
-
-          <div className="cta-section">
-            <Link href="/rsvp" className="primary-button">
-              RSVP Now
-            </Link>
-            <p className="rsvp-note">Please respond by February 1st, 2027</p>
-          </div>
         </section>
       </main>
     </>
