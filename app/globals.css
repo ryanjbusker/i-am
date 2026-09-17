@@ -1,6 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Spectral:wght@300;400;500;600;700&display=swap');
 
 /* =========================
    CSS VARIABLES - FLORAL COLOR PALETTE
@@ -113,9 +112,9 @@ a:hover {
 }
 
 .nav-header {
-  font-family: 'Rokkitt', serif;
+  font-family: 'Spectral', serif;
   font-size: 48px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.02em;
   color: var(--sage-green);
   text-decoration: none;
@@ -202,9 +201,9 @@ a:hover {
 }
 
 .couple-names {
-  font-family: 'Rokkitt', serif;
+  font-family: 'Spectral', serif;
   font-size: clamp(64px, 14vw, 140px);
-  font-weight: 600;
+  font-weight: 500;
   margin: 0 0 48px;
   letter-spacing: 0.02em;
   color: var(--charcoal);
