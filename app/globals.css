@@ -166,59 +166,12 @@ a:hover {
 .menu-image-side {
   width: 50%;
   height: 100%;
-  background: var(--ivory);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
 }
 
-.image-placeholder {
-  text-align: center;
-  padding: 40px;
-}
-
-.placeholder-flowers {
-  display: flex;
-  gap: 24px;
-  font-size: 64px;
-  margin-bottom: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
-  opacity: 0.5;
-}
-
-.flower-icon {
-  animation: float 3s ease-in-out infinite;
-}
-
-.flower-icon:nth-child(2) {
-  animation-delay: 0.5s;
-}
-
-.flower-icon:nth-child(3) {
-  animation-delay: 1s;
-}
-
-.flower-icon:nth-child(4) {
-  animation-delay: 1.5s;
-}
-
-.flower-icon:nth-child(5) {
-  animation-delay: 2s;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-.placeholder-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: var(--secondary-text);
-  font-style: italic;
+.menu-image-side img {
+  transition: opacity 0.4s ease-in-out;
 }
 
 .menu-options-side {
