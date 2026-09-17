@@ -31,11 +31,19 @@ after(() => {
   server?.kill();
 });
 
-test("server-renders the RSVP name search", async () => {
+test("server-renders the wedding landing page", async () => {
   const response = await fetch(baseUrl, { headers: { accept: "text/html" } });
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /<title>RSVP test<\/title>/i);
+  assert.match(html, /<title>Ryan &(?:amp;|#x27;)? ?Eleanor[^<]*<\/title>/i);
+  assert.match(html, /The Garden Estate/);
+  assert.match(html, /RSVP Now/);
+});
+
+test("server-renders the RSVP name search", async () => {
+  const response = await fetch(`${baseUrl}/rsvp`, { headers: { accept: "text/html" } });
+  assert.equal(response.status, 200);
+  const html = await response.text();
   assert.match(html, /Enter your name/);
   assert.match(html, /Find invitation/);
 });
