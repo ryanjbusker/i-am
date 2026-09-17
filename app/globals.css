@@ -685,14 +685,14 @@ a:hover {
 }
 
 .schedule-container {
-  max-width: 1000px;
+  max-width: 700px;
   margin: 0 auto;
   text-align: center;
 }
 
 .schedule-title {
   font-family: 'Spectral', serif;
-  font-size: clamp(40px, 6vw, 56px);
+  font-size: clamp(36px, 5vw, 48px);
   font-weight: 400;
   color: var(--charcoal);
   margin: 0 0 60px;
@@ -700,78 +700,58 @@ a:hover {
 }
 
 .event-details {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 60px;
-  align-items: center;
-  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 .event-card {
-  background: var(--ivory);
-  border: 1px solid rgba(168, 184, 120, 0.2);
-  padding: 48px 40px;
-  border-radius: 2px;
-  box-shadow: 0 4px 16px rgba(56, 54, 51, 0.06);
-  transition: all 0.3s ease;
+  background: var(--white);
+  border: none;
+  padding: 0;
+  transition: none;
 }
 
 .event-card:hover {
-  box-shadow: 0 8px 24px rgba(56, 54, 51, 0.1);
-  transform: translateY(-4px);
+  box-shadow: none;
+  transform: none;
 }
 
 .event-type {
   font-family: 'Spectral', serif;
-  font-size: 28px;
-  font-weight: 400;
+  font-size: 24px;
+  font-weight: 500;
   color: var(--sage-green);
-  margin: 0 0 16px;
+  margin: 0 0 12px;
   letter-spacing: 0.05em;
 }
 
 .event-time {
   font-family: 'Spectral', serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--dusty-rose);
-  margin: 0 0 32px;
-  letter-spacing: 0.03em;
-}
-
-.event-location {
-  margin-top: 24px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 16px;
+  letter-spacing: 0.02em;
 }
 
 .venue-name {
   font-family: 'Spectral', serif;
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--charcoal);
-  margin: 0 0 16px;
-  line-height: 1.4;
+  font-size: 20px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 12px;
+  line-height: 1.5;
 }
 
 .venue-address {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
-  color: var(--secondary-text);
+  color: #000000;
   line-height: 1.7;
   margin: 0;
-}
-
-.event-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.divider-icon {
-  font-size: 32px;
-  color: var(--sage-green);
-  opacity: 0.5;
 }
 
 /* =========================
