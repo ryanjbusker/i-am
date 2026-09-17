@@ -342,8 +342,9 @@ a:hover {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--secondary-text);
+  color: #FFFFFF;
   margin: 0 0 32px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .couple-names {
@@ -352,8 +353,9 @@ a:hover {
   font-weight: 500;
   margin: 0 0 48px;
   letter-spacing: 0.02em;
-  color: var(--charcoal);
+  color: #FFFFFF;
   line-height: 1.2;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
 }
 
 .date-location {
@@ -365,8 +367,9 @@ a:hover {
   font-size: clamp(32px, 6vw, 48px);
   font-weight: 400;
   letter-spacing: 0.05em;
-  color: var(--dusty-rose);
+  color: #FFFFFF;
   margin: 0 0 16px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
 }
 
 .wedding-location {
@@ -375,8 +378,9 @@ a:hover {
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--secondary-text);
+  color: #FFFFFF;
   margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* =========================
