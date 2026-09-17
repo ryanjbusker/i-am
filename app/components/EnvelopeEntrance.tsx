@@ -30,12 +30,7 @@ export function EnvelopeEntrance({ children }: EnvelopeEntranceProps) {
             <div className={`wax-seal ${isAnimating ? "breaking" : ""}`} onClick={handleOpen}>
               <div className="seal-ring"></div>
               <div className="seal-center">
-                <div className="laurel-left"></div>
-                <div className="laurel-right"></div>
-                <div className="seal-content">
-                  <span className="seal-initials">R & E</span>
-                  <span className="seal-date">03.06.2027</span>
-                </div>
+                <span className="seal-initials">R & E</span>
               </div>
             </div>
           </div>
