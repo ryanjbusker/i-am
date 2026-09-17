@@ -310,9 +310,24 @@ a:hover {
   align-items: center;
   justify-content: center;
   background: var(--ivory);
+  background-image: url('/images/image-7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding: 80px 32px;
   text-align: center;
   overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 1;
 }
 
 .hero-content {
