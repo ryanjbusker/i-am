@@ -265,8 +265,8 @@ a:hover {
   justify-content: center;
   background: var(--ivory);
   background-image: url('/images/hero-bench.jpg');
-  background-size: cover;
-  background-position: center 40%;
+  background-size: contain;
+  background-position: center;
   background-repeat: no-repeat;
   padding: 80px 32px;
   text-align: center;
