@@ -224,11 +224,10 @@ a:hover {
 .menu-options-side {
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.95);
   background: linear-gradient(135deg, 
     rgba(255, 255, 255, 0.98) 0%, 
-    rgba(248, 250, 245, 0.98) 50%,
-    rgba(245, 248, 242, 0.98) 100%);
+    rgba(240, 248, 255, 0.98) 50%,
+    rgba(230, 242, 255, 0.98) 100%);
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
@@ -678,6 +677,56 @@ a:hover {
 }
 
 /* =========================
+   SCHEDULE TIMELINE
+   ========================= */
+.schedule-timeline {
+  margin-top: 48px;
+  position: relative;
+  padding-left: 0;
+}
+
+.schedule-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+  position: relative;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(168, 184, 120, 0.2);
+}
+
+.schedule-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.schedule-time {
+  font-family: 'Spectral', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dusty-rose);
+  text-align: right;
+  padding-top: 4px;
+}
+
+.schedule-details h3 {
+  font-family: 'Spectral', serif;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0 0 12px;
+  color: var(--charcoal);
+}
+
+.schedule-details p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--secondary-text);
+  margin: 0;
+}
+
+/* =========================
    RESPONSIVE
    ========================= */
 @media (max-width: 768px) {
@@ -715,6 +764,22 @@ a:hover {
   .placeholder-flowers {
     font-size: 48px;
     gap: 16px;
+  }
+  
+  .schedule-item {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .schedule-time {
+    text-align: left;
+    font-size: 20px;
+  }
+  
+  .schedule-details h3 {
+    font-size: 24px;
   }
   
   .hero-section {
