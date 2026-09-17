@@ -279,7 +279,8 @@ a:hover {
   background-size: cover;
   background-position: center 45%;
   background-repeat: no-repeat;
-  padding: 120px 32px 200px;
+  padding: 140px 32px 200px;
+  margin-top: 0;
   text-align: center;
   overflow: visible;
 }
