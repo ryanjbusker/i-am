@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Spectral:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Spectral:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
 
 /* =========================
    CSS VARIABLES - FLORAL COLOR PALETTE
@@ -106,10 +106,10 @@ a:hover {
 }
 
 .nav-header {
-  font-family: 'Spectral', serif;
-  font-size: 32px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
   font-weight: 400;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   color: var(--sage-green);
   text-decoration: none;
   transition: color 0.3s ease;

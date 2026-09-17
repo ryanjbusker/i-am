@@ -13,7 +13,7 @@ export function Navigation() {
     <>
       <nav className="main-nav">
         <Link href="/" className="nav-header">
-          Ryan and Eleanor
+          R &amp; E
         </Link>
         <button
           className="hamburger"
