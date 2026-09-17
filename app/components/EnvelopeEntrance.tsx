@@ -24,18 +24,12 @@ export function EnvelopeEntrance({ children }: EnvelopeEntranceProps) {
   return (
     <div className={`envelope-container ${isAnimating ? "opening" : ""}`}>
       <div className="envelope-wrapper">
-        <div className="envelope" onClick={handleOpen}>
+        <div className="envelope">
           <div className="envelope-flap"></div>
           <div className="envelope-body">
-            <div className="envelope-front">
-              <div className="envelope-letter">
-                <div className="letter-content">
-                  <h1 className="envelope-names">Ryan & Eleanor</h1>
-                  <p className="envelope-date">April 2027</p>
-                  <p className="envelope-invitation">You're Invited</p>
-                  <p className="envelope-cta">Click to open</p>
-                </div>
-              </div>
+            <div className="wax-seal" onClick={handleOpen}>
+              <div className="seal-shine"></div>
+              <span className="seal-initials">R & E</span>
             </div>
           </div>
         </div>
