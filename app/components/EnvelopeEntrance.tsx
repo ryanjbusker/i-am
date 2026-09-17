@@ -27,11 +27,15 @@ export function EnvelopeEntrance({ children }: EnvelopeEntranceProps) {
         <div className={`envelope ${isAnimating ? "opening" : ""}`}>
           <div className="envelope-flap"></div>
           <div className="envelope-body">
-            <div className={`wax-seal ${isAnimating ? "breaking" : ""}`} onClick={handleOpen}>
-              <div className="seal-ring"></div>
-              <div className="seal-center">
-                <span className="seal-initials">R & E</span>
-              </div>
+            <div className={`wax-seal-container ${isAnimating ? "breaking" : ""}`} onClick={handleOpen}>
+              <Image
+                src="/images/wax-seal.png"
+                alt="Wax Seal"
+                width={140}
+                height={140}
+                className="wax-seal-image"
+                priority
+              />
             </div>
           </div>
         </div>
