@@ -199,7 +199,8 @@ a:hover {
   background: none;
   border: none;
   font-size: 48px;
-  color: var(--sage-green);
+  color: #FFFFFF;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   line-height: 1;
   padding: 0;
