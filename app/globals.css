@@ -259,7 +259,7 @@ a:hover {
 
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 120vh;
   height: auto;
   display: flex;
   align-items: center;
@@ -267,9 +267,9 @@ a:hover {
   background: var(--ivory);
   background-image: url('/images/hero-bench.jpg');
   background-size: cover;
-  background-position: center center;
+  background-position: center 45%;
   background-repeat: no-repeat;
-  padding: 120px 32px 150px;
+  padding: 120px 32px 200px;
   text-align: center;
   overflow: visible;
 }
