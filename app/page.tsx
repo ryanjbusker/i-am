@@ -1,5 +1,8 @@
 import { Navigation } from "./components/Navigation";
+<<<<<<< HEAD
+=======
 import Link from "next/link";
+>>>>>>> origin/main
 
 export default function Home() {
   return (
@@ -7,6 +10,20 @@ export default function Home() {
       <Navigation />
       <main className="landing-page">
         <section className="hero-section">
+<<<<<<< HEAD
+          <div className="floral-accent floral-top-left"></div>
+          <div className="floral-accent floral-top-right"></div>
+          <div className="hero-content">
+            <p className="label">WE'RE GETTING MARRIED</p>
+            <h1 className="couple-names">Ryan &amp; Eleanor</h1>
+            <div className="date-location">
+              <p className="wedding-month">April 2027</p>
+              <p className="wedding-location">Corpus Christi, Texas</p>
+            </div>
+          </div>
+          <div className="floral-accent floral-bottom-left"></div>
+          <div className="floral-accent floral-bottom-right"></div>
+=======
           <div className="hero-content">
             <p className="label">WE'RE GETTING MARRIED</p>
             <h1 className="couple-names">Ryan &amp; Eleanor</h1>
@@ -58,6 +75,7 @@ export default function Home() {
             </Link>
             <p className="rsvp-note">Please respond by February 1st, 2027</p>
           </div>
+>>>>>>> origin/main
         </section>
       </main>
     </>
