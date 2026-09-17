@@ -301,6 +301,7 @@ a:hover {
 .landing-page {
   min-height: 100vh;
   padding-top: 140px;
+  margin: 0;
 }
 
 .hero-section {
@@ -701,6 +702,8 @@ a:hover {
 .schedule-section {
   background: var(--white);
   padding: 100px 32px;
+  margin: 0;
+  border: none;
 }
 
 .schedule-container {
