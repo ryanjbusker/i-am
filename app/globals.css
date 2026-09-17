@@ -168,6 +168,7 @@ a:hover {
   height: 100%;
   position: relative;
   overflow: hidden;
+  background: var(--ivory);
 }
 
 .menu-image-side img {

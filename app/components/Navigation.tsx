@@ -44,7 +44,7 @@ export function Navigation() {
               src={hoveredImage}
               alt="Ryan and Eleanor"
               fill
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "contain" }}
               priority
             />
           </div>
