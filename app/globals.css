@@ -95,7 +95,9 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.98);
+  background: url('/images/floral-pattern.jpg');
+  background-size: cover;
+  background-position: center;
   backdrop-filter: blur(12px);
   padding: 24px 40px;
   display: flex;
