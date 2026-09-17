@@ -34,7 +34,7 @@ export function EnvelopeEntrance({ children }: EnvelopeEntranceProps) {
                 <div className="laurel-right"></div>
                 <div className="seal-content">
                   <span className="seal-initials">R & E</span>
-                  <span className="seal-date">04.2027</span>
+                  <span className="seal-date">03.06.2027</span>
                 </div>
               </div>
             </div>
