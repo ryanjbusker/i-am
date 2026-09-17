@@ -168,7 +168,6 @@ a:hover {
   height: 100%;
   position: relative;
   overflow: hidden;
-  background: var(--ivory);
 }
 
 .menu-image-side img {
@@ -267,7 +266,7 @@ a:hover {
   background: var(--ivory);
   background-image: url('/images/hero-bench.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center 40%;
   background-repeat: no-repeat;
   padding: 80px 32px;
   text-align: center;
