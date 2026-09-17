@@ -172,6 +172,9 @@ a:hover {
   height: 100%;
   position: relative;
   overflow: hidden;
+  background: url('/images/floral-pattern.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .menu-image-side img {
@@ -260,7 +263,7 @@ a:hover {
    ========================= */
 .landing-page {
   min-height: 100vh;
-  padding-top: 140px;
+  padding-top: 0;
   margin: 0;
 }
 
@@ -661,7 +664,7 @@ a:hover {
    LANDING PAGE SCHEDULE
    ========================= */
 .schedule-section {
-  background: var(--white);
+  background: linear-gradient(135deg, rgba(230, 240, 250, 0.95) 0%, rgba(240, 248, 255, 0.95) 100%);
   padding: 100px 32px;
   margin: 0;
   border: none;
