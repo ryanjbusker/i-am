@@ -215,7 +215,7 @@ export function ReportBoard({ board }: { board: BoardData }) {
         {board.phase === "current" ? (
           <>
             <Stat value={String(dueToday)} label="Have not submitted today" tone={dueToday ? "alert" : "ok"} />
-            <Stat value={String(missingEarlier)} label="Missing from earlier this week" tone={missingEarlier ? "alert" : "ok"} />
+            <Stat value={String(missingEarlier)} label="Missing reports from earlier days" tone={missingEarlier ? "alert" : "ok"} />
             <Stat value={String(receivedToday)} label="Received today" tone="ok" />
           </>
         ) : null}
