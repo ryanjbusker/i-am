@@ -38,6 +38,3 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
-
-# Daily report submissions recorded by the admin board
-/data/report-submissions.json
