@@ -178,7 +178,7 @@ a:hover {
 }
 
 .menu-image-side img {
-  transition: opacity 0.4s ease-in-out;
+  transition: none;
 }
 
 .menu-options-side {
