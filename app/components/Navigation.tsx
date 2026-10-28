@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,13 +15,6 @@ export function Navigation() {
     { name: "FAQ", href: "/faq", image: "/images/d92414f4-53d8-4fae-895a-a35d15e94606.jpg" },
     { name: "Registry", href: "/registry", image: "/images/8a44eb89-d550-4a0f-97f4-580de7e01b13.jpg" },
   ];
-
-  useEffect(() => {
-    menuItems.forEach((item) => {
-      const img = new window.Image();
-      img.src = item.image;
-    });
-  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -47,13 +40,21 @@ export function Navigation() {
       {isOpen && (
         <div className="fullscreen-menu">
           <div className="menu-image-side">
-            <Image
-              src={hoveredImage}
-              alt="Ryan and Eleanor"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
+            {menuItems.map((item) => (
+              <Image
+                key={item.image}
+                src={item.image}
+                alt="Ryan and Eleanor"
+                fill
+                style={{
+                  objectFit: "cover",
+                  opacity: hoveredImage === item.image ? 1 : 0,
+                  transition: "none",
+                }}
+                priority
+                unoptimized
+              />
+            ))}
           </div>
           <div className="menu-options-side">
             <button className="menu-close" onClick={closeMenu} aria-label="Close menu">
