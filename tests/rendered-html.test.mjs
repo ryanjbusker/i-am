@@ -36,7 +36,7 @@ test("server-renders the wedding landing page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /<title>Ryan &(?:amp;|#x27;)? ?Eleanor[^<]*<\/title>/i);
-  assert.match(html, /The Garden Estate/);
+  assert.match(html, /Corpus Christi Cathedral/);
   assert.match(html, /RSVP Now/);
 });
 

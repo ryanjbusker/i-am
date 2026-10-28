@@ -27,8 +27,7 @@ export default function SchedulePage() {
               <div className="schedule-details">
                 <h3>Ceremony</h3>
                 <p>
-                  Join us as we exchange our vows in the garden. The ceremony will take place outdoors 
-                  at The Garden Estate overlooking the beautiful vineyard views.
+                  Join us as we exchange our vows at the Corpus Christi Cathedral.
                 </p>
               </div>
             </div>
@@ -38,7 +37,7 @@ export default function SchedulePage() {
               <div className="schedule-details">
                 <h3>Cocktail Hour</h3>
                 <p>
-                  Enjoy drinks and hors d'oeuvres on the terrace while we take photos. 
+                  Enjoy drinks and hors d'oeuvres in the Corpus Christi Country Club ballroom while we take photos. 
                   Mingle with other guests and enjoy the spring evening.
                 </p>
               </div>
@@ -49,7 +48,7 @@ export default function SchedulePage() {
               <div className="schedule-details">
                 <h3>Reception Begins</h3>
                 <p>
-                  Dinner service begins! Find your seat for a delicious meal, heartfelt toasts, 
+                  Dinner service begins! Enjoy a delicious meal, heartfelt toasts, 
                   and the start of an unforgettable evening.
                 </p>
               </div>

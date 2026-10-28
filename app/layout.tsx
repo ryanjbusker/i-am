@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Ryan & Eleanor - March 6, 2027",
-  description: "Join us for our wedding celebration at The Garden Estate in Napa Valley.",
+  description: "Join us for our wedding celebration at Corpus Christi Cathedral and Corpus Christi Country Club.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
