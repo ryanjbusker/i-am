@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { PasswordGate } from "./components/PasswordGate";
 
 export const metadata: Metadata = {
   title: "Ryan & Eleanor - March 6, 2027",
@@ -17,7 +18,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Dancing+Script:wght@500;600&family=Karla:wght@400;500;600;700&family=Pinyon+Script&display=swap"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <PasswordGate>{children}</PasswordGate>
+      </body>
     </html>
   );
 }

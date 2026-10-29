@@ -13,7 +13,6 @@ export function Navigation() {
 
   const menuItems = [
     { name: "Home", href: "/", image: "/images/120402bc-c76e-4ea3-87e9-106d517f0ef7.jpg" },
-    { name: "Schedule", href: "/schedule", image: "/images/91975f14-4bdf-4db3-bf0d-92949cf315ef.jpg" },
     { name: "Photos", href: "/photos", image: "/images/49bf1c0c-2c84-4f33-b4ca-92a0cf1427dd.jpg" },
     { name: "FAQ", href: "/faq", image: "/images/d92414f4-53d8-4fae-895a-a35d15e94606.jpg" },
     { name: "Registry", href: "/registry", image: "/images/8a44eb89-d550-4a0f-97f4-580de7e01b13.jpg" },

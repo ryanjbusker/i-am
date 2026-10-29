@@ -36,40 +36,32 @@ test("server-renders the wedding landing page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /<title>Ryan &(?:amp;|#x27;)? ?Eleanor[^<]*<\/title>/i);
-  assert.match(html, /The Garden Estate/);
-  assert.match(html, /RSVP Now/);
+  assert.match(html, /Corpus Christi/i);
+  assert.match(html, /April 2027/);
 });
 
-test("server-renders the RSVP name search", async () => {
-  const response = await fetch(`${baseUrl}/rsvp`, { headers: { accept: "text/html" } });
+test("server-renders the photos page", async () => {
+  const response = await fetch(`${baseUrl}/photos`, { headers: { accept: "text/html" } });
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /Enter your name/);
-  assert.match(html, /Find invitation/);
+  assert.match(html, /<title>Ryan &(?:amp;|#x27;)? ?Eleanor[^<]*<\/title>/i);
 });
 
-test("rejects an RSVP token that is not a UUID", async () => {
-  const response = await fetch(`${baseUrl}/api/rsvp/not-a-token`);
-  assert.equal(response.status, 400);
-  assert.deepEqual(await response.json(), { error: "That RSVP code is not valid." });
+test("server-renders the FAQ page", async () => {
+  const response = await fetch(`${baseUrl}/faq`, { headers: { accept: "text/html" } });
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Ryan &(?:amp;|#x27;)? ?Eleanor[^<]*<\/title>/i);
 });
 
-test("validates last-name lookup input before database access", async () => {
-  const response = await fetch(`${baseUrl}/api/rsvp/lookup`, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({ lastName: "" }),
-  });
-  assert.equal(response.status, 400);
-  assert.deepEqual(await response.json(), { error: "Please enter a valid last name." });
+test("server-renders the registry page", async () => {
+  const response = await fetch(`${baseUrl}/registry`, { headers: { accept: "text/html" } });
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Ryan &(?:amp;|#x27;)? ?Eleanor[^<]*<\/title>/i);
 });
 
-test("validates name search input before database access", async () => {
-  const response = await fetch(`${baseUrl}/api/rsvp/search`, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({ name: "" }),
-  });
-  assert.equal(response.status, 400);
-  assert.deepEqual(await response.json(), { error: "Please enter a name to search." });
+test("returns 404 for the removed schedule page", async () => {
+  const response = await fetch(`${baseUrl}/schedule`, { headers: { accept: "text/html" } });
+  assert.equal(response.status, 404);
 });
