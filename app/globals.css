@@ -740,56 +740,6 @@ a:hover {
 }
 
 /* =========================
-   SCHEDULE TIMELINE
-   ========================= */
-.schedule-timeline {
-  margin-top: 48px;
-  position: relative;
-  padding-left: 0;
-}
-
-.schedule-item {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 32px;
-  margin-bottom: 48px;
-  position: relative;
-  padding-bottom: 48px;
-  border-bottom: 1px solid rgba(168, 184, 120, 0.2);
-}
-
-.schedule-item:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.schedule-time {
-  font-family: 'Spectral', serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--dusty-rose);
-  text-align: right;
-  padding-top: 4px;
-}
-
-.schedule-details h3 {
-  font-family: 'Spectral', serif;
-  font-size: 28px;
-  font-weight: 500;
-  margin: 0 0 12px;
-  color: var(--charcoal);
-}
-
-.schedule-details p {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--secondary-text);
-  margin: 0;
-}
-
-/* =========================
    RESPONSIVE
    ========================= */
 @media (max-width: 768px) {
@@ -830,22 +780,6 @@ a:hover {
   
   .event-details {
     gap: 36px;
-  }
-  
-  .schedule-item {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 40px;
-    padding-bottom: 40px;
-  }
-  
-  .schedule-time {
-    text-align: left;
-    font-size: 20px;
-  }
-  
-  .schedule-details h3 {
-    font-size: 24px;
   }
   
   .hero-section {
@@ -925,6 +859,122 @@ a:hover {
   
   .floral-accent {
     display: none;
+  }
+}
+
+/* =========================
+   PASSWORD GATE
+   ========================= */
+.password-gate-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--ivory) 0%, var(--cream-alt) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.password-gate-container {
+  max-width: 500px;
+  width: 90%;
+  background: var(--white);
+  border: 1px solid rgba(168, 184, 120, 0.2);
+  padding: 60px 40px;
+  box-shadow: 0 12px 48px rgba(56, 54, 51, 0.12);
+  text-align: center;
+}
+
+.password-gate-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin: 0 0 8px;
+  letter-spacing: 0.02em;
+}
+
+.password-gate-subtitle {
+  font-family: 'Spectral', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--secondary-text);
+  margin: 0 0 32px;
+}
+
+.password-gate-message {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--secondary-text);
+  margin: 0 0 32px;
+  line-height: 1.6;
+}
+
+.password-gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.password-gate-input {
+  width: 100%;
+  padding: 16px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  border: 2px solid rgba(168, 184, 120, 0.3);
+  background: var(--ivory);
+  color: var(--charcoal);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.password-gate-input:focus {
+  outline: none;
+  border-color: var(--sage-green);
+  background: var(--white);
+}
+
+.password-gate-button {
+  padding: 16px 32px;
+  background: var(--dusty-rose);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid var(--dusty-rose);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.password-gate-button:hover {
+  background: var(--blush-pink);
+  border-color: var(--blush-pink);
+  transform: scale(1.02);
+}
+
+.password-gate-error {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #c94444;
+  margin: 8px 0 0;
+}
+
+@media (max-width: 480px) {
+  .password-gate-container {
+    padding: 40px 24px;
+  }
+  
+  .password-gate-title {
+    font-size: 36px;
+  }
+  
+  .password-gate-subtitle {
+    font-size: 18px;
   }
 }
 
