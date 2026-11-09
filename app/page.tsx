@@ -1,9 +1,8 @@
 import { Navigation } from "./components/Navigation";
-import { EnvelopeEntrance } from "./components/EnvelopeEntrance";
 
 export default function Home() {
   return (
-    <EnvelopeEntrance>
+    <>
       <Navigation />
       <main className="landing-page">
         <section className="hero-section">
@@ -45,6 +44,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-    </EnvelopeEntrance>
+    </>
   );
 }
