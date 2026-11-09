@@ -37,7 +37,7 @@ test("server-renders the wedding landing page", async () => {
   const html = await response.text();
   assert.match(html, /<title>Ryan &(?:amp;|#x27;)? ?Eleanor[^<]*<\/title>/i);
   assert.match(html, /Corpus Christi Cathedral/);
-  assert.match(html, /April 2027/);
+  assert.match(html, /March 2027/);
 });
 
 test("server-renders the photos page", async () => {

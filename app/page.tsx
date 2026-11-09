@@ -11,7 +11,7 @@ export default function Home() {
             <p className="label">WE'RE GETTING MARRIED</p>
             <h1 className="couple-names">Ryan &amp; Eleanor</h1>
             <div className="date-location">
-              <p className="wedding-month">April 2027</p>
+              <p className="wedding-month">March 2027</p>
               <p className="wedding-location">Corpus Christi, Texas</p>
             </div>
           </div>
