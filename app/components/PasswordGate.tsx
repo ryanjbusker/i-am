@@ -48,7 +48,6 @@ export function PasswordGate({ children }: PasswordGateProps) {
       <div className="password-gate-container">
         <div className="password-gate-content">
           <h1 className="password-gate-title">Ryan &amp; Eleanor</h1>
-          <p className="password-gate-subtitle">March 6, 2027</p>
           <p className="password-gate-message">Please enter the password to view our wedding website</p>
           
           <form onSubmit={handleSubmit} className="password-gate-form">
