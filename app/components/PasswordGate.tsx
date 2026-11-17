@@ -15,10 +15,8 @@ export function PasswordGate({ children }: PasswordGateProps) {
   const CORRECT_PASSWORD = "3527";
 
   useEffect(() => {
-    const stored = localStorage.getItem("wedding_auth");
-    if (stored === "authenticated") {
-      setIsAuthenticated(true);
-    }
+    // Clear any existing auth to ensure gate is shown every time
+    localStorage.removeItem("wedding_auth");
     setIsLoading(false);
   }, []);
 
@@ -26,7 +24,6 @@ export function PasswordGate({ children }: PasswordGateProps) {
     e.preventDefault();
     
     if (password === CORRECT_PASSWORD) {
-      localStorage.setItem("wedding_auth", "authenticated");
       setIsAuthenticated(true);
       setError("");
     } else {
