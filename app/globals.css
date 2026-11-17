@@ -881,10 +881,10 @@ a:hover {
 .password-gate-container {
   max-width: 500px;
   width: 90%;
-  background: #97904C;
-  border: 1px solid rgba(151, 144, 76, 0.3);
+  background: #A8A161;
+  border: 1px solid rgba(168, 161, 97, 0.3);
   padding: 60px 40px;
-  box-shadow: 0 12px 48px rgba(56, 54, 51, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
