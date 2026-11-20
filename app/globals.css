@@ -947,3 +947,215 @@ a:hover {
     font-size: 18px;
   }
 }
+
+/* =========================
+   SAVE THE DATE PAGE
+   ========================= */
+.save-the-date-container {
+  min-height: 100vh;
+  background: rgb(217, 232, 246);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 90vw;
+  max-width: 400px;
+  height: 280px;
+  perspective: 1000px;
+}
+
+.envelope-button {
+  all: unset;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: block;
+}
+
+.envelope-button:disabled {
+  cursor: default;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgb(217, 232, 246);
+  border: 3px solid rgba(168, 184, 120, 0.3);
+  border-radius: 8px;
+  transition: transform 0.6s ease;
+}
+
+.envelope-wrapper.opened .envelope {
+  transform: translateY(-50px) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgb(207, 222, 236), rgb(217, 232, 246));
+  transform-origin: top center;
+  transition: transform 0.8s ease;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 3px solid rgba(168, 184, 120, 0.3);
+  z-index: 2;
+}
+
+.envelope-wrapper.opened .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: var(--sage-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  transition: all 0.6s ease 0.2s;
+}
+
+.envelope-wrapper.opened .envelope-seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.seal-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  color: white;
+  font-weight: 400;
+}
+
+.tap-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--sage-green);
+  opacity: 0.7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.card-container {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 600px;
+  opacity: 0;
+  transition: all 1s ease 0.4s;
+  pointer-events: none;
+}
+
+.envelope-wrapper.opened .card-container {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.action-button-container {
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeInButton 0.6s ease 1.6s forwards;
+}
+
+@keyframes fadeInButton {
+  to { opacity: 1; }
+}
+
+.view-website-button {
+  display: inline-block;
+  padding: 16px 48px;
+  background: var(--sage-green);
+  color: white;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(168, 184, 120, 0.3);
+}
+
+.view-website-button:hover {
+  background: var(--muted-green);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(168, 184, 120, 0.4);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .envelope-wrapper.opened .envelope,
+  .envelope-flap,
+  .envelope-seal,
+  .card-container,
+  .tap-hint {
+    transition: none;
+    animation: none;
+  }
+  
+  .envelope-wrapper.opened .envelope {
+    display: none;
+  }
+  
+  .envelope-wrapper.opened .card-container {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .action-button-container {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .envelope-wrapper {
+    max-width: 340px;
+    height: 240px;
+  }
+  
+  .card-container {
+    max-width: 90vw;
+  }
+  
+  .view-website-button {
+    padding: 14px 36px;
+    font-size: 15px;
+  }
+}

@@ -13,6 +13,11 @@ export function proxy(request: NextRequest) {
     response.headers.set('Expires', '0');
   }
   
+  // Hide /save-the-date from search engines
+  if (request.nextUrl.pathname === '/save-the-date') {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
+  
   return response;
 }
 
