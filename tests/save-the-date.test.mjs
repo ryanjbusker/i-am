@@ -35,12 +35,15 @@ test("save-the-date page renders without password gate", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   
-  // Should NOT have password gate
-  assert.doesNotMatch(html, /password-gate-overlay/i, "Page should not have password gate");
-  assert.doesNotMatch(html, /enter the password/i, "Page should not ask for password");
+  // Should have save-the-date in the route
+  assert.match(html, /route:\/save-the-date/i, "Page should be for save-the-date route");
   
-  // Should have envelope content
-  assert.match(html, /envelope/i, "Page should have envelope");
+  // Title should be save-the-date specific, not the default wedding website title
+  assert.match(html, /Save the Date - Ryan &amp; Eleanor/i, "Page should have Save the Date title");
+  assert.doesNotMatch(html, /March 6, 2027.*wedding celebration/i, "Should not have main site description");
+  
+  // Layout should be save-the-date specific
+  assert.match(html, /layout:\/save-the-date/i, "Page should use save-the-date layout");
 });
 
 test("save-the-date page has noindex meta tag", async () => {
