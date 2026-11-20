@@ -1,21 +1,14 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { EnvelopeSVG } from "./EnvelopeSVG";
 
 export default function SaveTheDatePage() {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   const handleOpen = () => {
     setIsOpen(true);
-  };
-  
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      handleOpen();
-    }
   };
 
   return (
@@ -24,18 +17,21 @@ export default function SaveTheDatePage() {
         <button 
           className="envelope-button" 
           onClick={handleOpen}
-          onKeyDown={handleKeyDown}
           disabled={isOpen}
-          aria-label="Open envelope to see save the date"
-          tabIndex={0}
+          aria-label="Open envelope"
         >
-          <EnvelopeSVG isOpen={isOpen} />
+          <div className="envelope">
+            <div className="envelope-flap"></div>
+            <div className="envelope-seal">
+              <span className="seal-text">E &amp; R</span>
+            </div>
+          </div>
         </button>
-        
-        {!isOpen && <div className="tap-hint">Tap to open</div>}
       </div>
       
-      <div className={`card-container ${isOpen ? 'visible' : ''}`}>
+      {!isOpen && <div className="tap-hint">Tap to open</div>}
+      
+      <div className="card-container">
         <Image
           src="/save-the-date/card-1200.webp"
           alt="Save the Date - Eleanor Ehrman and Ryan Busker, March 6, 2027, Corpus Christi, Texas"
@@ -44,7 +40,7 @@ export default function SaveTheDatePage() {
           priority
           className="card-image"
           srcSet="/save-the-date/card-1200.webp 1200w, /save-the-date/card-2400.webp 2400w"
-          sizes="(max-width: 768px) 90vw, 540px"
+          sizes="(max-width: 768px) 90vw, 600px"
         />
       </div>
       

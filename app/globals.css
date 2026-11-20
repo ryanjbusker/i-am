@@ -953,125 +953,165 @@ a:hover {
    ========================= */
 .save-the-date-container {
   min-height: 100vh;
-  min-height: 100svh;
-  min-height: 100dvh;
   background: rgb(217, 232, 246);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  gap: 24px;
+  gap: 20px;
 }
 
 .envelope-wrapper {
   position: relative;
-  width: 88vw;
-  max-width: 520px;
+  width: 90vw;
+  max-width: 400px;
+  height: 280px;
   perspective: 1000px;
-  -webkit-perspective: 1000px;
 }
 
 .envelope-button {
   all: unset;
   width: 100%;
-  display: block;
+  height: 100%;
   cursor: pointer;
-  outline: 2px solid transparent;
-  outline-offset: 4px;
-  transition: outline-color 0.2s ease;
-}
-
-.envelope-button:focus-visible {
-  outline-color: var(--sage-green);
+  display: block;
 }
 
 .envelope-button:disabled {
   cursor: default;
 }
 
-/* SVG envelope animations */
-.envelope-svg {
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgb(195, 215, 235);
+  border-radius: 4px;
+  transition: transform 0.6s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border: 1px solid rgba(168, 184, 120, 0.2);
 }
 
-.envelope-wrapper.opened .envelope-svg {
-  transform: translateY(-30px) scale(0.85);
-  -webkit-transform: translateY(-30px) scale(0.85);
+.envelope-wrapper.opened .envelope {
+  transform: translateY(-50px) scale(0.8);
   opacity: 0;
   pointer-events: none;
 }
 
-.envelope-svg .flap-open polygon,
-.envelope-svg .flap-open line {
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+.envelope::before,
+.envelope::after {
+  content: '';
+  position: absolute;
+  border-style: solid;
 }
 
-.envelope-wrapper.opened .envelope-svg .flap-open polygon,
-.envelope-wrapper.opened .envelope-svg .flap-open line {
+.envelope::before {
+  left: 0;
+  bottom: 0;
+  border-width: 0 0 30px 30px;
+  border-color: transparent transparent rgba(168, 184, 120, 0.15) transparent;
+}
+
+.envelope::after {
+  right: 0;
+  bottom: 0;
+  border-width: 0 30px 30px 0;
+  border-color: transparent transparent rgba(168, 184, 120, 0.15) transparent;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgb(185, 205, 225), rgb(195, 215, 235));
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: 50% 0%;
+  transition: transform 0.8s ease;
+  z-index: 2;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.envelope-wrapper.opened .envelope-flap {
   transform: rotateX(180deg);
-  -webkit-transform: rotateX(180deg);
 }
 
-.envelope-svg .wax-seal {
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+.envelope-seal {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at 30% 30%, #8FA45F, #66784A);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+  z-index: 3;
+  transition: all 0.6s ease 0.2s;
+  border: 2px solid rgba(102, 120, 74, 0.4);
 }
 
-.envelope-wrapper.opened .envelope-svg .wax-seal {
+.envelope-seal::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  opacity: 0.3;
+  background: radial-gradient(circle at 60% 60%, transparent 40%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.envelope-wrapper.opened .envelope-seal {
   opacity: 0;
-  transform: scale(0.5);
-  -webkit-transform: scale(0.5);
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.seal-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 20px;
+  color: white;
+  font-weight: 400;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 
 .tap-hint {
-  margin-top: 18px;
+  margin-top: 16px;
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--sage-green);
-  text-align: center;
-  animation: gentlePulse 2s ease-in-out infinite;
-  -webkit-animation: gentlePulse 2s ease-in-out infinite;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes gentlePulse {
-  0%, 100% { opacity: 0.65; }
-  50% { opacity: 0.95; }
-}
-
-@-webkit-keyframes gentlePulse {
-  0%, 100% { opacity: 0.65; }
-  50% { opacity: 0.95; }
-}
-
-.envelope-wrapper.opened .tap-hint {
-  opacity: 0 !important;
+.envelope-wrapper.opened + .tap-hint {
+  opacity: 0;
 }
 
 .card-container {
   position: relative;
   width: 90vw;
-  max-width: 540px;
+  max-width: 600px;
   max-height: 75vh;
-  max-height: 75svh;
-  max-height: 75dvh;
   aspect-ratio: 1;
   opacity: 0;
   transform: translateY(100px);
-  -webkit-transform: translateY(100px);
-  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
-  -webkit-transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
+  transition: all 1.2s ease 0.6s;
   pointer-events: none;
 }
 
-.card-container.visible {
+.envelope-wrapper.opened + .card-container {
   opacity: 1;
   transform: translateY(0);
-  -webkit-transform: translateY(0);
   pointer-events: auto;
 }
 
@@ -1084,17 +1124,12 @@ a:hover {
 }
 
 .action-button-container {
-  margin-top: 24px;
+  margin-top: 20px;
   opacity: 0;
   animation: fadeInButton 0.6s ease 2s forwards;
-  -webkit-animation: fadeInButton 0.6s ease 2s forwards;
 }
 
 @keyframes fadeInButton {
-  to { opacity: 1; }
-}
-
-@-webkit-keyframes fadeInButton {
   to { opacity: 1; }
 }
 
@@ -1110,41 +1145,37 @@ a:hover {
   letter-spacing: 0.05em;
   border-radius: 8px;
   transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(168, 184, 120, 0.3);
 }
 
 .view-website-button:hover {
   background: var(--muted-green);
   transform: translateY(-2px);
-  -webkit-transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(168, 184, 120, 0.4);
 }
 
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .envelope-svg,
-  .envelope-svg .flap-open polygon,
-  .envelope-svg .flap-open line,
-  .envelope-svg .wax-seal,
+  .envelope-wrapper.opened .envelope,
+  .envelope-flap,
+  .envelope-seal,
   .card-container,
-  .tap-hint,
-  .action-button-container {
-    transition: none !important;
-    -webkit-transition: none !important;
-    animation: none !important;
-    -webkit-animation: none !important;
+  .tap-hint {
+    transition: none;
+    animation: none;
   }
   
-  .envelope-wrapper.opened .envelope-svg {
+  .envelope-wrapper.opened .envelope {
     display: none;
   }
   
-  .card-container.visible {
+  .envelope-wrapper.opened .card-container {
     opacity: 1;
+    transition: opacity 0.3s ease;
   }
   
   .action-button-container {
+    animation: none;
     opacity: 1;
   }
 }
@@ -1152,12 +1183,8 @@ a:hover {
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .envelope-wrapper {
-    width: 88vw;
-    max-width: 420px;
-  }
-  
-  .tap-hint {
-    font-size: 15px;
+    max-width: 340px;
+    height: 240px;
   }
   
   .card-container {
