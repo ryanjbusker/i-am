@@ -150,7 +150,7 @@ a:hover {
   background: var(--muted-green);
 }
 
-/* Split-screen fullscreen menu */
+/* Fullscreen menu */
 .fullscreen-menu {
   position: fixed;
   top: 0;
@@ -158,39 +158,18 @@ a:hover {
   width: 100vw;
   height: 100vh;
   z-index: 105;
-  display: flex;
-  animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.menu-image-side {
-  width: 50%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  background: url('/images/floral-pattern.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.menu-image-side img {
-  transition: none;
-}
-
-.menu-options-side {
-  width: 50%;
-  height: 100%;
   background: url('/images/floral-pattern.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .menu-close {
@@ -749,20 +728,6 @@ a:hover {
   
   .nav-header {
     font-size: 36px;
-  }
-  
-  .fullscreen-menu {
-    flex-direction: column;
-  }
-  
-  .menu-image-side {
-    width: 100%;
-    height: 40%;
-  }
-  
-  .menu-options-side {
-    width: 100%;
-    height: 60%;
   }
   
   .menu-links-container {
