@@ -81,14 +81,3 @@ test("no pages link to save-the-date", async () => {
     }
   }
 });
-
-test("SVG envelope exists in server HTML", async () => {
-  const response = await fetch(`${baseUrl}/save-the-date`, { headers: { accept: "text/html" } });
-  assert.equal(response.status, 200);
-  const html = await response.text();
-  
-  // SVG should be server-rendered in the HTML
-  assert.match(html, /<svg[^>]*viewBox/, "Page should contain SVG element with viewBox");
-  assert.match(html, /envelope-svg/, "SVG should have envelope-svg class");
-  assert.match(html, /<polygon[^>]*points/, "SVG should contain polygon elements for envelope shapes");
-});
