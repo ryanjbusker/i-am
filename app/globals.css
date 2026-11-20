@@ -959,6 +959,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  gap: 20px;
 }
 
 .envelope-wrapper {
@@ -985,11 +986,12 @@ a:hover {
   position: relative;
   width: 100%;
   height: 100%;
-  background: rgb(207, 222, 236);
+  background: rgb(195, 215, 235);
   border-radius: 4px;
   transition: transform 0.6s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  overflow: visible;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  border: 1px solid rgba(168, 184, 120, 0.2);
 }
 
 .envelope-wrapper.opened .envelope {
@@ -1002,42 +1004,39 @@ a:hover {
 .envelope::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 0;
   border-style: solid;
 }
 
 .envelope::before {
   left: 0;
-  border-width: 0 0 20px 20px;
+  bottom: 0;
+  border-width: 0 0 30px 30px;
   border-color: transparent transparent rgba(168, 184, 120, 0.15) transparent;
 }
 
 .envelope::after {
   right: 0;
-  border-width: 0 20px 20px 0;
+  bottom: 0;
+  border-width: 0 30px 30px 0;
   border-color: transparent transparent rgba(168, 184, 120, 0.15) transparent;
 }
 
 .envelope-flap {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 200px 140px 200px;
-  border-color: transparent transparent rgb(197, 212, 226) transparent;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgb(185, 205, 225), rgb(195, 215, 235));
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: 50% 0%;
   transition: transform 0.8s ease;
   z-index: 2;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .envelope-wrapper.opened .envelope-flap {
-  transform: translateX(-50%) rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
 .envelope-seal {
@@ -1085,52 +1084,36 @@ a:hover {
   z-index: 1;
 }
 
-.tap-hint {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: var(--sage-green);
-  opacity: 0.7;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.7; }
-  50% { opacity: 1; }
-}
-
 .card-container {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 90vw;
   max-width: 600px;
+  max-height: 75vh;
+  aspect-ratio: 1;
   opacity: 0;
-  transition: all 1s ease 0.4s;
+  transform: translateY(100px);
+  transition: all 1.2s ease 0.6s;
   pointer-events: none;
 }
 
-.envelope-wrapper.opened .card-container {
-  top: 50%;
-  transform: translate(-50%, -50%);
+.envelope-wrapper.opened + .card-container {
   opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .card-image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
 .action-button-container {
-  margin-top: 40px;
+  margin-top: 20px;
   opacity: 0;
-  animation: fadeInButton 0.6s ease 1.6s forwards;
+  animation: fadeInButton 0.6s ease 2s forwards;
 }
 
 @keyframes fadeInButton {

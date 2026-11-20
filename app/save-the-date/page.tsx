@@ -25,22 +25,21 @@ export default function SaveTheDatePage() {
             <div className="envelope-seal">
               <span className="seal-text">E &amp; R</span>
             </div>
-            {!isOpen && <div className="tap-hint">Tap to open</div>}
           </div>
         </button>
-        
-        <div className="card-container">
-          <Image
-            src="/save-the-date/card-1200.webp"
-            alt="Save the Date - Eleanor Ehrman and Ryan Busker, March 6, 2027, Corpus Christi, Texas"
-            width={1200}
-            height={1200}
-            priority
-            className="card-image"
-            srcSet="/save-the-date/card-1200.webp 1200w, /save-the-date/card-2400.webp 2400w"
-            sizes="(max-width: 768px) 90vw, 600px"
-          />
-        </div>
+      </div>
+      
+      <div className="card-container">
+        <Image
+          src="/save-the-date/card-1200.webp"
+          alt="Save the Date - Eleanor Ehrman and Ryan Busker, March 6, 2027, Corpus Christi, Texas"
+          width={1200}
+          height={1200}
+          priority
+          className="card-image"
+          srcSet="/save-the-date/card-1200.webp 1200w, /save-the-date/card-2400.webp 2400w"
+          sizes="(max-width: 768px) 90vw, 600px"
+        />
       </div>
       
       {isOpen && (
