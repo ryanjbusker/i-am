@@ -1084,6 +1084,19 @@ a:hover {
   z-index: 1;
 }
 
+.tap-hint {
+  margin-top: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--sage-green);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.envelope-wrapper.opened + .tap-hint {
+  opacity: 0;
+}
+
 .card-container {
   position: relative;
   width: 90vw;

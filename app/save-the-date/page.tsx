@@ -29,6 +29,8 @@ export default function SaveTheDatePage() {
         </button>
       </div>
       
+      {!isOpen && <div className="tap-hint">Tap to open</div>}
+      
       <div className="card-container">
         <Image
           src="/save-the-date/card-1200.webp"

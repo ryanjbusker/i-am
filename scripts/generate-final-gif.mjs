@@ -1,3 +1,13 @@
+/**
+ * GIF Generation Script (Reference Only)
+ * 
+ * NOTE: The committed save-the-date.gif in public/save-the-date/ is the FINAL ASSET
+ * and should not be regenerated or overwritten. This script is kept for reference
+ * to document the animation approach used during development.
+ * 
+ * The final GIF was hand-crafted at 600×600px, ~1.16MB, plays once with a 15s hold.
+ */
+
 import { chromium } from '@playwright/test';
 import { spawn } from 'child_process';
 import { promises as fs } from 'fs';
@@ -9,6 +19,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const publicDir = join(__dirname, '..', 'public', 'save-the-date');
 const framesDir = join(publicDir, 'frames');
+
+// Exit early to prevent overwriting the final asset
+console.log('⚠️  This script is for reference only.');
+console.log('⚠️  The committed GIF is the final asset and should not be regenerated.');
+console.log('⚠️  Exiting to prevent overwriting.');
+process.exit(0);
 
 async function generateAssets() {
   await fs.mkdir(framesDir, { recursive: true });
