@@ -12,7 +12,7 @@ export function PasswordGate({ children }: PasswordGateProps) {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  const CORRECT_PASSWORD = "3527";
+  const CORRECT_PASSWORD = "3627";
 
   useEffect(() => {
     // Clear any existing auth to ensure gate is shown every time
