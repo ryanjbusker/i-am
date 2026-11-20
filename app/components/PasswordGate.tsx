@@ -1,18 +1,23 @@
 "use client";
 
 import { useState, useEffect, FormEvent } from "react";
+import { usePathname } from "next/navigation";
 
 interface PasswordGateProps {
   children: React.ReactNode;
 }
 
 export function PasswordGate({ children }: PasswordGateProps) {
+  const pathname = usePathname();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   const CORRECT_PASSWORD = "3627";
+  
+  // Skip password gate for save-the-date page
+  const isPublicRoute = pathname === '/save-the-date';
 
   useEffect(() => {
     // Clear any existing auth to ensure gate is shown every time
@@ -31,6 +36,11 @@ export function PasswordGate({ children }: PasswordGateProps) {
       setPassword("");
     }
   };
+
+  // Skip gate for public routes
+  if (isPublicRoute) {
+    return <>{children}</>;
+  }
 
   if (isLoading) {
     return null;
