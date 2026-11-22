@@ -1,3 +1,4 @@
+import { Countdown } from "./components/Countdown";
 import { Navigation } from "./components/Navigation";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
               <p className="wedding-month">March 2027</p>
               <p className="wedding-location">Corpus Christi, Texas</p>
             </div>
+            <Countdown />
           </div>
         </section>
 
