@@ -252,9 +252,10 @@ a:hover {
   align-items: center;
   justify-content: center;
   background: var(--ivory);
-  background-image: url('/images/hero-bench.jpg');
+  background-image: url('/images/hero-engagement.jpg');
   background-size: cover;
-  background-position: center 45%;
+  /* Portrait photo: faces sit ~12-29% from the top and ~31-53% from the left. */
+  background-position: 40% 6%;
   background-repeat: no-repeat;
   padding: 140px 32px 200px;
   margin-top: 0;
@@ -1065,6 +1066,9 @@ a:hover {
   
   .hero-section {
     padding: 60px 24px;
+    background-image: url('/images/hero-engagement-1200.jpg');
+    /* 1x screens get the 1200px file; retina phones need the 2400px one to stay sharp. */
+    background-image: image-set(url('/images/hero-engagement-1200.jpg') 1x, url('/images/hero-engagement.jpg') 2x);
   }
   
   .floral-accent {
