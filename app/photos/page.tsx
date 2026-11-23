@@ -1,29 +1,21 @@
 import { Navigation } from "../components/Navigation";
+import { PhotoGallery } from "../components/PhotoGallery";
+import { ENGAGEMENT_PHOTOS } from "./engagement-photos";
 
 export default function PhotosPage() {
   return (
     <>
       <Navigation />
       <main className="content-page">
-        <div className="content-container">
-          <h1>Our Photos</h1>
-          <p className="description">
-            Coming soon! We'll share our engagement photos and memories here.
-          </p>
-          <div className="photo-grid">
-            <div className="photo-placeholder">
-              <span>📷</span>
-              <p>Photos coming soon</p>
-            </div>
-            <div className="photo-placeholder">
-              <span>📷</span>
-              <p>Photos coming soon</p>
-            </div>
-            <div className="photo-placeholder">
-              <span>📷</span>
-              <p>Photos coming soon</p>
-            </div>
-          </div>
+        <div className="content-container content-container--wide">
+          <header className="gallery-header">
+            <p className="gallery-kicker">Our Engagement</p>
+            <h1>Our Photos</h1>
+            <p className="description">
+              A few favorite moments from our engagement session. Tap any photo to view it larger.
+            </p>
+          </header>
+          <PhotoGallery photos={ENGAGEMENT_PHOTOS} />
         </div>
       </main>
     </>
