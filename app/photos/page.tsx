@@ -9,11 +9,7 @@ export default function PhotosPage() {
       <main className="content-page">
         <div className="content-container content-container--wide">
           <header className="gallery-header">
-            <p className="gallery-kicker">Our Engagement</p>
-            <h1>Our Photos</h1>
-            <p className="description">
-              A few favorite moments from our engagement session. Tap any photo to view it larger.
-            </p>
+            <h1>Photos</h1>
           </header>
           <PhotoGallery photos={ENGAGEMENT_PHOTOS} />
         </div>

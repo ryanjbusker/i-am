@@ -45,6 +45,15 @@ test("server-renders the photos page", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /<title>Ryan &(?:amp;|#x27;)? ?Eleanor[^<]*<\/title>/i);
+  // Photos is a client-hydrated page: the heading and gallery live in the escaped RSC payload.
+  const rsc = html.replace(/\\"/g, '"');
+  assert.match(rsc, /"className":"gallery-header"/);
+  assert.match(rsc, /"children":"Photos"/);
+  assert.doesNotMatch(html, /Our Engagement/);
+  assert.doesNotMatch(html, /A few favorite moments from our engagement session/);
+  assert.doesNotMatch(html, /Tap any photo to view it larger/);
+  const photos = rsc.match(/\{"name":"[^"]+","w":\d+,"h":\d+\}/g) || [];
+  assert.equal(photos.length, 20, `expected 20 gallery photos, got ${photos.length}`);
 });
 
 test("server-renders the FAQ page", async () => {
