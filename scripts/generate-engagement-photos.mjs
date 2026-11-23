@@ -1,20 +1,54 @@
 // Generates web gallery copies of the engagement photos.
 // Input: a folder of already web-optimized JPEGs (EXIF stripped), default /workspace/engagement-photos/web
+// If a manifest.json is found (in the source dir, its parent, or passed as argv[3]), photos are
+// processed in that manifest's order using each entry's web_filename.
 // Output: public/images/engagement/{thumbs,full}/ and app/photos/engagement-photos.ts
-// Usage: node scripts/generate-engagement-photos.mjs [sourceDir]
+// Existing files in thumbs/ and full/ are replaced.
+// Usage: node scripts/generate-engagement-photos.mjs [sourceDir] [manifestPath]
 import sharp from 'sharp';
 import fs from 'node:fs';
 import path from 'node:path';
 
 const src = process.argv[2] || '/workspace/engagement-photos/web';
+const manifestArg = process.argv[3];
 const out = 'public/images/engagement';
 const THUMB = 720;
 const FULL = 1600;
 
+function resolveFiles(sourceDir, manifestPath) {
+  const candidates = [manifestPath, path.join(sourceDir, 'manifest.json'), path.join(path.dirname(sourceDir), 'manifest.json')].filter(Boolean);
+  const manifestFile = candidates.find((p) => fs.existsSync(p));
+  if (manifestFile) {
+    const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
+    if (!Array.isArray(manifest)) {
+      throw new Error(`Manifest is not an array: ${manifestFile}`);
+    }
+    const files = manifest.map((entry) => entry.web_filename).filter(Boolean);
+    for (const f of files) {
+      const fullPath = path.join(sourceDir, f);
+      if (!fs.existsSync(fullPath)) {
+        throw new Error(`Missing source file listed in manifest: ${fullPath}`);
+      }
+    }
+    return { files, manifestFile };
+  }
+  return {
+    files: fs.readdirSync(sourceDir).filter((f) => /\.jpe?g$/i.test(f)).sort(),
+    manifestFile: null,
+  };
+}
+
+const { files, manifestFile } = resolveFiles(src, manifestArg);
+
 fs.mkdirSync(`${out}/thumbs`, { recursive: true });
 fs.mkdirSync(`${out}/full`, { recursive: true });
 
-const files = fs.readdirSync(src).filter((f) => /\.jpe?g$/i.test(f)).sort();
+for (const dir of [`${out}/thumbs`, `${out}/full`]) {
+  for (const f of fs.readdirSync(dir)) {
+    fs.unlinkSync(path.join(dir, f));
+  }
+}
+
 const list = [];
 let thumbBytes = 0;
 let fullBytes = 0;
@@ -47,4 +81,4 @@ ${list.map((p) => `  { name: "${p.name}", w: ${p.w}, h: ${p.h} },`).join('\n')}
 ];
 `;
 fs.writeFileSync('app/photos/engagement-photos.ts', ts);
-console.log(JSON.stringify({ count: list.length, thumbBytes, fullBytes }));
+console.log(JSON.stringify({ count: list.length, thumbBytes, fullBytes, manifestFile, names: list.map((p) => p.name) }));
